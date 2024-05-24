@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.fertilizerMapper">
+
+    <insert id="insert" parameterType="com.example.demo.pojo.Fertilizers" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO swu4.fertilizers ( fertilizationDate,fertilizerType ,fertilizerAmount,nextFertilizationDate,memo)
+        VALUES (#{fertilizationDate},#{fertilizerType},#{fertilizerAmount},#{nextFertilizationDate},#{memo})
+    </insert>
+    <select id="queryById" parameterType="Integer" resultType="com.example.demo.pojo.Fertilizers">
+        select * from swu4.fertilizers where  Id=#{Id};
+    </select>
+    <select id="queryAll" resultType="com.example.demo.pojo.Fertilizers">
+        select * from swu4.fertilizers;
+    </select>
+    <delete id="delete" parameterType="Integer">
+        delete from swu4.fertilizers where id = #{id};
+    </delete>
+    <update id="update" parameterType="com.example.demo.pojo.Fertilizers">
+        update swu4.fertilizers set id=#{id},fertilizationDate=#{fertilizationDate},fertilizerAmount=#{fertilizerAmount},nextFertilizationDate=#{nextFertilizationDate},memo=#{memo}
+        where id=#{id};
+    </update>
+</mapper>

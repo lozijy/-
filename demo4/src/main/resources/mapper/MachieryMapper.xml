@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.demo.mapper.MachieryMapper">
+    <resultMap id="FarmingMachineryResultMap" type="com.example.demo.pojo.FarmingMachinery">
+        <id column="id" property="id" />
+        <result column="usage_date" property="usageDate" />
+        <result column="purpose" property="purpose" />
+        <result column="maintenance_status" property="maintenanceStatus" />
+        <result column="purchase_date" property="purchaseDate" />
+        <result column="ownerId" property="ownerId" />
+        <result column="name" property="name" />
+    </resultMap>
+    <insert id="insert" parameterType="com.example.demo.pojo.FarmingMachinery" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO swu4.farming_machinery ( usage_date,purpose, maintenance_status,purchase_date,ownerId,name)
+        VALUES (#{usageDate},#{purpose},#{maintenanceStatus},#{purchaseDate},#{ownerId},#{name})
+    </insert>
+    <select id="queryAll" resultMap="FarmingMachineryResultMap">
+        select * from swu4.farming_machinery;
+    </select>
+    <select id="queryById" parameterType="Integer" resultType="com.example.demo.pojo.FarmingMachinery" resultMap="FarmingMachineryResultMap">
+        select * from swu4.farming_machinery where  Id=#{Id};
+    </select>
+    <select id="queryByOwnerId" parameterType="Integer" resultType="com.example.demo.pojo.FarmingMachinery" resultMap="FarmingMachineryResultMap">
+        select * from swu4.farming_machinery where  ownerId=#{ownerId};
+    </select>
+    <delete id="delete" parameterType="Integer">
+        delete from swu4.farming_machinery where id = #{id};
+    </delete>
+    <update id="update" parameterType="com.example.demo.pojo.FarmingMachinery">
+        update swu4.farming_machinery set id=#{id},usage_date=#{usageDate},purpose=#{purpose},maintenance_status=#{maintenanceStatus},purchase_date=#{purchaseDate},ownerId=#{ownerId}
+        where id=#{id};
+    </update>
+    <update id="updateInfo" parameterType="com.example.demo.pojo.FarmingMachinery">
+        update swu4.farming_machinery set usage_date=#{usageDate},maintenance_status=#{maintenanceStatus},ownerId=#{ownerId}
+        where id=#{id};
+    </update>
+
+</mapper>

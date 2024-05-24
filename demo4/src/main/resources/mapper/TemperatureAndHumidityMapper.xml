@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.TemperatureAndHumidityMapper">
+    <insert id="insert" parameterType="com.example.demo.pojo.Temperatureandhumiditysensordata" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO swu4.temperatureandhumiditysensordata ( sensorId,temperature, Humidity,timestamp)
+        VALUES (#{sensorId},#{temperature},#{Humidity},#{timestamp})
+    </insert>
+    <select id="queryAll" resultType="com.example.demo.pojo.Temperatureandhumiditysensordata">
+        select * from swu4.temperatureandhumiditysensordata;
+    </select>
+</mapper>

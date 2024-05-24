@@ -1,0 +1,23 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    threads:
+      max: 200
+      min-spare: 30
+    connection-timeout: 5000ms
+  port: 8090
+mybatis:
+
+  #指定pojo扫描包位置让mybatis自动扫描到指定义的pojo包下
+  type-aliases-package: com.example.demo.pojo
+  #指定位置扫描Mapper接口对应的XML文件 classpath:xml文件位置
+  mapper-locations: classpath:mapper/*.xml
+
+spring:
+  datasource:
+    name: test
+    url: jdbc:mysql://106.54.195.222:3306/swu4
+    username: swu4
+    password: swu4
+    driver-class-name: com.mysql.jdbc.Driver
+
