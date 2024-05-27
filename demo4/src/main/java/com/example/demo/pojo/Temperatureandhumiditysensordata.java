@@ -20,6 +20,13 @@ public class Temperatureandhumiditysensordata {
     this.humidity=humidity;
     this.timestamp=timestamp;
   }
+  public Temperatureandhumiditysensordata(int id,int sensorId, double temperature, double humidity, Date timestamp) {
+    this.id=id;
+    this.sensorId=sensorId;
+    this.temperature=temperature;
+    this.humidity=humidity;
+    this.timestamp=timestamp;
+  }
 
   public String getType(){return this.type;}
   public long getId() {

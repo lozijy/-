@@ -11,11 +11,19 @@ package com.example.demo.pojo;
 public class waterData{
     private final String type="water";
     private java.sql.Date timestamp;
+
     double phValue;
     double conductivity;
     double totalPhosphorus;
     double totalNitrogen;
 
+    private int id;
+    public int getId() {
+        return id;
+    }
+    public void setId(){
+        this.id=id;
+    }
 
     public String getType(){return this.type;}
     public double getPhValue(){
@@ -36,6 +44,14 @@ public class waterData{
     }
 
     public waterData(java.sql.Date timestamp, double phValue, double conductivity, double totalPhosphorus, double totalNitrogen){
+        this.conductivity=conductivity;
+        this.timestamp=timestamp;
+        this.phValue=phValue;
+        this.totalNitrogen=totalNitrogen;
+        this.totalPhosphorus=totalPhosphorus;
+    }
+    public waterData(int id,java.sql.Date timestamp, double phValue, double conductivity, double totalPhosphorus, double totalNitrogen){
+        this.id=id;
         this.conductivity=conductivity;
         this.timestamp=timestamp;
         this.phValue=phValue;

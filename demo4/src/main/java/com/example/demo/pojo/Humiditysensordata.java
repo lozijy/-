@@ -58,4 +58,11 @@ public class Humiditysensordata {
     this.timestamp=timestamp;
     this.temperature=temperature;
   }
+  public Humiditysensordata(int id,int sensorId, double humidity,java.sql.Date timestamp ,double temperature ) {
+    this.id=id;
+    this.sensorId=sensorId;
+    this.humidity=humidity;
+    this.timestamp=timestamp;
+    this.temperature=temperature;
+  }
 }

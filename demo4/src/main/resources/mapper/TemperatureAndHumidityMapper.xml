@@ -8,7 +8,13 @@
         INSERT INTO swu4.temperatureandhumiditysensordata ( sensorId,temperature, Humidity,timestamp)
         VALUES (#{sensorId},#{temperature},#{Humidity},#{timestamp})
     </insert>
-    <select id="queryAll" resultType="com.example.demo.pojo.Temperatureandhumiditysensordata">
+    <select id="queryTemper" resultType="com.example.demo.pojo.Temperatureandhumiditysensordata">
         select * from swu4.temperatureandhumiditysensordata;
+    </select>
+    <select id="queryWater" resultType="com.example.demo.pojo.waterData">
+        select * from swu4.watersourcemanagement;
+    </select>
+    <select id="queryHumidity" resultType="com.example.demo.pojo.Humiditysensordata">
+        select * from swu4.humiditysensordata;
     </select>
 </mapper>

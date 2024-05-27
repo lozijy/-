@@ -62,7 +62,7 @@ public class machineryController {
     @PutMapping("/update")
     @ResponseBody
     public String updateInfo(@RequestBody FarmingMachinery ma){
-        service.update(ma);
+        service.updateInfo(ma);
         return "修改成功";
     }
     @ApiOperation("查询用户的所有农机信息信息")
