@@ -47,7 +47,7 @@ public class WaterSensor implements Runnable {
             //userName怎么获取
 //            System.out.println(JSON.toJSONString(waterdata));
             MyWebSocketHandler.sendToAll(JSON.toJSONString(waterdata));
-//            DatabaseUtils.saveWaterData(waterdata);
+            DatabaseUtils.saveWaterData(waterdata);
             try {
                 Thread.sleep(interval);
             } catch (InterruptedException e) {

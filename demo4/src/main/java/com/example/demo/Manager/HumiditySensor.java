@@ -39,7 +39,7 @@ public class HumiditySensor implements Runnable {
             //userName怎么获取
 //            System.out.println(JSON.toJSONString(sensorData));
             MyWebSocketHandler.sendToAll(JSON.toJSONString(sensorData));
-//            DatabaseUtils.saveSensorData(sensorData);
+            DatabaseUtils.saveSensorData(sensorData);
             try {
                 Thread.sleep(interval);
             } catch (InterruptedException e) {

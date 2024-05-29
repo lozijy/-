@@ -41,7 +41,7 @@ public class HumidityAndTemperatureSensor implements Runnable {
 //            System.out.println(JSON.toJSONString(sensorData));
             MyWebSocketHandler.sendToAll(JSON.toJSONString(sensorData));
 //            // 存储到数据库
-//            DatabaseUtils.saveSensorData(sensorData);
+            DatabaseUtils.saveSensorData(sensorData);
 
 
             try {

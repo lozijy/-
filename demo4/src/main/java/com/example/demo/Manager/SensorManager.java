@@ -22,9 +22,6 @@ public class SensorManager {
     @PostConstruct
     public void init() {
         executorService = Executors.newFixedThreadPool(NUM_SENSORS);
-
-
-
         executorService = Executors.newFixedThreadPool(NUM_SENSORS);
         humidityAndTemperatureSensors = new ArrayList<>();
         humiditySensors = new ArrayList<>();

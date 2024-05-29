@@ -5,10 +5,12 @@ import com.example.demo.pojo.Humiditysensordata;
 import com.example.demo.pojo.Temperatureandhumiditysensordata;
 import com.example.demo.pojo.waterData;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import javax.servlet.jsp.jstl.sql.Result;
+import javax.servlet.jsp.jstl.sql.ResultSupport;
+
+
+import java.sql.*;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -96,6 +98,76 @@ public class DatabaseUtils {
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+    public static Result getSensorData1(int id) {
+        try {
+            // 获取数据库连接
+            Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+
+            // 准备 SQL 语句
+            String sql = "SELECT * FROM swu4.humiditysensordata where id= ? ";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1,id);
+
+            // 执行 SQL 语句
+            ResultSet resultSet = statement.executeQuery();
+            Result result= ResultSupport.toResult(resultSet);
+            resultSet.close();
+            statement.close();
+            connection.close();
+            return result;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public static Result getSensorData2(int id) {
+        try {
+            // 获取数据库连接
+            Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+
+            // 准备 SQL 语句
+            String sql = "SELECT * FROM swu4.temperatureandhumiditysensordata where id= ? ";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1,id);
+            // 执行 SQL 语句
+            ResultSet resultSet = statement.executeQuery();
+
+            Result result= ResultSupport.toResult(resultSet);
+
+            resultSet.close();
+            statement.close();
+            connection.close();
+            return result;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static Result getSensorData3(int id) {
+        try {
+            // 获取数据库连接
+            Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+
+            // 准备 SQL 语句
+            String sql = "SELECT * FROM swu4.watersourcemanagement where id= ? ";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1,id);
+            // 执行 SQL 语句
+            ResultSet resultSet = statement.executeQuery();
+
+            Result result= ResultSupport.toResult(resultSet);
+
+            resultSet.close();
+            statement.close();
+            connection.close();
+            return result;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }
